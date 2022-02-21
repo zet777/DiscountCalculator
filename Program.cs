@@ -31,7 +31,6 @@ namespace Conditionals
                 tilePrice = Convert.ToDecimal(stringPrice);
             }
 
-
             decimal rate;
             {
                 const string AZERBAIJANE_CODE = "994", ARMENIA_CODE = "374", BELARUS_CODE = "375",
@@ -92,23 +91,39 @@ namespace Conditionals
                 }
                 else if (countryCode == TAJIKISTAN_CODE)
                 {
-                    const decimal TAJIKISTAN_RATE = 1;
+                    const decimal TAJIKISTAN_RATE = 0.76m;
                     rate = TAJIKISTAN_RATE;
                 }
-                else if (countryCode == BELARUS_CODE)
+                else if (countryCode == TURKMENISTAN_CODE)
                 {
-                    const decimal BELARUS_RATE = 1;
-                    rate = BELARUS_RATE;
+                    const decimal TURKMENISTAN_RATE = 0.81m;
+                    rate = TURKMENISTAN_RATE;
                 }
-                else if (countryCode == BELARUS_CODE)
+                else if (countryCode == UZBEKISTAN_CODE)
                 {
-                    const decimal BELARUS_RATE = 1;
-                    rate = BELARUS_RATE;
+                    const decimal UZBEKISTAN_RATE = 0.98m;
+                    rate = UZBEKISTAN_RATE;
                 }
-
+                else if (countryCode == UKRAINE_CODE)
+                {
+                    const decimal UKRAINE_RATE = 1;
+                    rate = UKRAINE_RATE;
+                }
+                else if (countryCode == ESTONIA_CODE)
+                {
+                    const decimal ESTONIA_RATE = 1.12m;
+                    rate = ESTONIA_RATE;
+                }
+                else
+                {
+                    rate = 0;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Вы ввели несуществуещий код: {countryCode}!");
+                }
             }
 
-            decimal tileCost = tileQuontiti * tilePrice; // руб. 
+            decimal tilePriceWhithRate = tilePrice * rate;
+            decimal tileCost = tileQuontiti * tilePriceWhithRate; // руб. 
 
             decimal discount; // руб.
             {
@@ -144,11 +159,11 @@ namespace Conditionals
             decimal paymentAmoount = tileCost - discount;
 
             {
+                Console.WriteLine($"Цена с коэффициентом  : {tilePriceWhithRate} руб.");
                 Console.WriteLine($"Общая стоимость плитки: {tileCost} руб.");
                 Console.WriteLine($"Скидка                : {discount} руб.");
                 Console.WriteLine($"Сумма к оплате        : {paymentAmoount} руб.");
 
-                Console.ReadLine();
             }
 
 
