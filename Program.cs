@@ -52,8 +52,60 @@ namespace Conditionals
                 }
                 else if (countryCode == BELARUS_CODE)
                 {
-                    const decimal BELARUS_RATE = 
+                    const decimal BELARUS_RATE = 1;
+                    rate = BELARUS_RATE;
                 }
+                else if (countryCode == GEORGIA_CODE)
+                {
+                    const decimal GEORGIA_RATE = 0.94m;
+                    rate = GEORGIA_RATE;
+                }
+                else if (countryCode == KAZAKHSTAN_CODE)
+                {
+                    const decimal KAZAKHSTAN_RATE = 0.79m;
+                    rate = KAZAKHSTAN_RATE;
+                }
+                else if (countryCode == KYRGYZSTANN_CODE)
+                {
+                    const decimal KYRGYZSTANN_RATE = 0.83m;
+                    rate = KYRGYZSTANN_RATE;
+                }
+                else if (countryCode == LATVIA_CODE)
+                {
+                    const decimal LATVIA_RATE = 1.12m;
+                    rate = LATVIA_RATE;
+                }
+                else if (countryCode == LITHUANIA_CODE)
+                {
+                    const decimal LITHUANIA_RATE = 1.12m;
+                    rate = LITHUANIA_RATE;
+                }
+                else if (countryCode == MOLDOVA_CODE)
+                {
+                    const decimal MOLDOVA_RATE = 0.97m;
+                    rate = MOLDOVA_RATE;
+                }
+                else if (countryCode == RUSSIA_CODE)
+                {
+                    const decimal RUSSIA_RATE = 1;
+                    rate = RUSSIA_RATE;
+                }
+                else if (countryCode == TAJIKISTAN_CODE)
+                {
+                    const decimal TAJIKISTAN_RATE = 1;
+                    rate = TAJIKISTAN_RATE;
+                }
+                else if (countryCode == BELARUS_CODE)
+                {
+                    const decimal BELARUS_RATE = 1;
+                    rate = BELARUS_RATE;
+                }
+                else if (countryCode == BELARUS_CODE)
+                {
+                    const decimal BELARUS_RATE = 1;
+                    rate = BELARUS_RATE;
+                }
+
             }
 
             decimal tileCost = tileQuontiti * tilePrice; // руб. 
