@@ -6,15 +6,22 @@ namespace Conditionals
     {
         static void Main(string[] args)
         {
-            decimal tileQuontiti, tilePrice;
+            string countryCode;
+            decimal  tileQuontiti, tilePrice;
             {
-                string countryCodes =
+                const string COUNTRY_CODES =
                     "Азербаджан    (994)  |  Киргизия    (996)  |  Таджикистан    (992)\n" +
                     "Армения       (374)  |  Латвия      (371)  |  Туркмения      (993)\n" +
                     "Беларусь      (375)  |  Литва       (370)  |  Узбекистан     (998)\n" +
                     "Грузия        (995)  |  Молдова     (373)  |  Украина        (380)\n" +
                     "Казахстан     (007)  |  Россия      (007)  |  Эстония        (372)\n" +
                     "------------------------------------------------------------------";
+                
+                Console.WriteLine(COUNTRY_CODES);
+
+                Console.WriteLine("Телефонный код страны: ");
+                countryCode = Console.ReadLine(); 
+
                 Console.Write("Количество плитки: ");
                 string stringQuontiti = Console.ReadLine();
                 tileQuontiti = Convert.ToDecimal(stringQuontiti);
@@ -22,6 +29,31 @@ namespace Conditionals
                 Console.Write("Цена за 1м. кв. плитки: ");
                 string stringPrice = Console.ReadLine();
                 tilePrice = Convert.ToDecimal(stringPrice);
+            }
+
+
+            decimal rate;
+            {
+                const string AZERBAIJANE_CODE = "994", ARMENIA_CODE = "374", BELARUS_CODE = "375",
+                             GEORGIA_CODE = "995", KAZAKHSTAN_CODE = "007", KYRGYZSTANN_CODE = "996",
+                             LATVIA_CODE = "371", LITHUANIA_CODE = "370", MOLDOVA_CODE = "373",
+                             RUSSIA_CODE = "007", TAJIKISTAN_CODE = "992", TURKMENISTAN_CODE = "993",
+                             UZBEKISTAN_CODE = "998", UKRAINE_CODE = "380", ESTONIA_CODE = "372";
+
+                if (countryCode == AZERBAIJANE_CODE)
+                {
+                    const decimal AZERBAIJANE_RATE = 1.07m;
+                    rate = AZERBAIJANE_RATE;
+                }
+                else if (countryCode == ARMENIA_CODE)
+                {
+                    const decimal AMENIA_RATE = .95m;
+                    rate= AMENIA_RATE;
+                }
+                else if (countryCode == BELARUS_CODE)
+                {
+                    const decimal BELARUS_RATE = 
+                }
             }
 
             decimal tileCost = tileQuontiti * tilePrice; // руб. 
@@ -32,8 +64,10 @@ namespace Conditionals
                 {
                     bool discount20PctAvailable, discount50PctAvailable;
                     {
-                        const decimal MIN_TILE_QTY_FOR_DISCOUNT_20_PCT = 500, MIN_TILE_QTY_FOR_DISCOUNT_50_PCT = 1000; // м. кв.
-                        discount20PctAvailable = tileQuontiti >= MIN_TILE_QTY_FOR_DISCOUNT_20_PCT && tileQuontiti < MIN_TILE_QTY_FOR_DISCOUNT_50_PCT;
+                        const decimal MIN_TILE_QTY_FOR_DISCOUNT_20_PCT = 500, 
+                                      MIN_TILE_QTY_FOR_DISCOUNT_50_PCT = 1000; // м. кв.
+                        discount20PctAvailable = tileQuontiti >= MIN_TILE_QTY_FOR_DISCOUNT_20_PCT 
+                                              && tileQuontiti < MIN_TILE_QTY_FOR_DISCOUNT_50_PCT;
                         discount50PctAvailable = tileQuontiti >= MIN_TILE_QTY_FOR_DISCOUNT_50_PCT;
                     }
 
