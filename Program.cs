@@ -12,7 +12,7 @@
                     "Армения       (374)  |  Латвия      (371)  |  Туркмения      (993)\n" +
                     "Беларусь      (375)  |  Литва       (370)  |  Узбекистан     (998)\n" +
                     "Грузия        (995)  |  Молдова     (373)  |  Украина        (380)\n" +
-                    "Казахстан     (007)  |  Россия      (007)  |  Эстония        (372)\n" +
+                    "Казахстан     (007K)  |  Россия      (007)  |  Эстония        (372)\n" +
                     "------------------------------------------------------------------";
 
                 Console.WriteLine(COUNTRY_CODES);
@@ -40,22 +40,19 @@
                 switch (countryCode)
                 {
                     case AZERBAIJANE_CODE:
-                        const decimal AZERBAIJANE_RATE = 1.07m;
-                        rate = AZERBAIJANE_RATE;
-                        break;
+                        {
+                            const decimal AZERBAIJANE_RATE = 1.07m;
+                            rate = AZERBAIJANE_RATE;
+                            break;
+                        }
 
                     case ARMENIA_CODE:
                         {
-                            const decimal ARMENIA_RATE = .95m;
+                            const decimal ARMENIA_RATE = 0.95m;
                             rate = ARMENIA_RATE;
                             break;
                         }
-                    case BELARUS_CODE:
-                        {
-                            const decimal BELARUS_RATE = 1;
-                            rate = BELARUS_RATE;
-                            break;
-                        }
+                    
                     case GEORGIA_CODE:
                         {
                             const decimal GEORGIA_RATE = 0.94m;
@@ -74,30 +71,14 @@
                             rate = KYRGYZSTANN_RATE;
                             break;
                         }
-                    case LATVIA_CODE:
-                        {
-                            const decimal LATVIA_RATE = 1.12m;
-                            rate = LATVIA_RATE;
-                            break;
-                        }
-                    case LITHUANIA_CODE:
-                        {
-                            const decimal LITHUANIA_RATE = 1.12m;
-                            rate = LITHUANIA_RATE;
-                            break;
-                        }
+                   
                     case MOLDOVA_CODE:
                         {
                             const decimal MOLDOVA_RATE = 0.97m;
                             rate = MOLDOVA_RATE;
                             break;
                         }
-                    case RUSSIA_CODE:
-                        {
-                            const decimal RUSSIA_RATE = 1;
-                            rate = RUSSIA_RATE;
-                            break;
-                        }
+                   
                     case TAJIKISTAN_CODE:
                         {
                             const decimal TAJIKISTAN_RATE = 0.76m;
@@ -116,16 +97,20 @@
                             rate = UZBEKISTAN_RATE;
                             break;
                         }
+                    case BELARUS_CODE:
                     case UKRAINE_CODE:
+                    case RUSSIA_CODE:
                         {
-                            const decimal UKRAINE_RATE = 1;
-                            rate = UKRAINE_RATE;
+                            const decimal RUSSIA_RATE = 1;
+                            rate = RUSSIA_RATE;
                             break;
                         }
+                    case LATVIA_CODE:
+                    case LITHUANIA_CODE:   
                     case ESTONIA_CODE:
                         {
-                            const decimal ESTONIA_RATE = 1.12m;
-                            rate = ESTONIA_RATE;
+                            const decimal PRIBALTIKA_RATE = 1.12m;
+                            rate = PRIBALTIKA_RATE;
                             break;
                         }
                     default:
@@ -157,10 +142,11 @@
                     }
 
                     if (discount20PctAvailable)
+
                     {
                         discountPersentage = 20; // %
                     }
-                    else if (discount50PctAvailable)
+                    else if(discount50PctAvailable)
                     {
                         discountPersentage = 50; //%
                     }
