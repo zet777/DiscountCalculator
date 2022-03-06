@@ -10,9 +10,11 @@ namespace DiscountCalculator
             {
                 string countryCode;
                 decimal tileQuontiti, tilePrice;
-                
                 // countryCode, tileQuontiti, tilePrice = RunInputUserInterface ()
                 {
+                    Console.WriteLine("******************************************************************\n" +
+                                        "Нажмите Enter, для начала обслуживания нового клиента");
+                    Console.ReadKey();
                     const string COUNTRY_CODES =
                         "******************************************************************\n" +
                         "Азербаджан    (994)  |  Киргизия    (996)  |  Таджикистан    (992)\n" +
@@ -21,42 +23,81 @@ namespace DiscountCalculator
                         "Грузия        (995)  |  Молдова     (373)  |  Украина        (380)\n" +
                         "Казахстан     (007K)  |  Россия      (007)  |  Эстония        (372)\n" +
                         "------------------------------------------------------------------";
-                    
-                        Console.WriteLine(COUNTRY_CODES);
+
+                    Console.WriteLine(COUNTRY_CODES);
 
                     //countryCode = ProcessCountryCode (countryCode)
                     {
-
-                        Console.WriteLine("Телефонный код страны: ");
-                        countryCode = Console.ReadLine();
-
-                        // countryCode = DetectKazakhstanCode (countryCode)
+                        bool countryCodeIsCorrect;
+                        do
                         {
+                            Console.WriteLine("Телефонный код страны: ");
+                            countryCode = Console.ReadLine();
 
-                            const string KAZAKHSTAN_CODE = "007";
-                            const string LOWERCASE_ENGLISH_LETTER_k = "k", UPPERCASE_RUSSIAN_LETTER_K = "К",
-                                LOWERCASE_RUSSIAN_LETTER_k = "к";
+                            // countryCode = DetectKazakhstanCode (countryCode)
+                            {
 
-                            bool countryCodeIsKazakhstanCodeAndAnyLatterK =
-                                countryCode == (KAZAKHSTAN_CODE + LOWERCASE_ENGLISH_LETTER_k) ||
-                                countryCode == (KAZAKHSTAN_CODE + UPPERCASE_RUSSIAN_LETTER_K) ||
-                                countryCode == (KAZAKHSTAN_CODE + LOWERCASE_RUSSIAN_LETTER_k);
-                            if (countryCodeIsKazakhstanCodeAndAnyLatterK)
+                                const string KAZAKHSTAN_CODE = "007";
+                                const string LOWERCASE_ENGLISH_LETTER_k = "k", UPPERCASE_RUSSIAN_LETTER_K = "К",
+                                    LOWERCASE_RUSSIAN_LETTER_k = "к";
+
+                                bool countryCodeIsKazakhstanCodeAndAnyLatterK =
+                                    countryCode == (KAZAKHSTAN_CODE + LOWERCASE_ENGLISH_LETTER_k) ||
+                                    countryCode == (KAZAKHSTAN_CODE + UPPERCASE_RUSSIAN_LETTER_K) ||
+                                    countryCode == (KAZAKHSTAN_CODE + LOWERCASE_RUSSIAN_LETTER_k);
+                                if (countryCodeIsKazakhstanCodeAndAnyLatterK)
+                                {
+                                    const string UPPERCASE_ENGLISH_LETTER_K = "K";
+                                    countryCode = KAZAKHSTAN_CODE + UPPERCASE_ENGLISH_LETTER_K;
+                                }
+                            }
+
+
+
+                            //countryCodeIsCorrect = ChekCountryCode (countryCode)
                             {
                                 const string UPPERCASE_ENGLISH_LETTER_K = "K";
-                                countryCode = KAZAKHSTAN_CODE + UPPERCASE_ENGLISH_LETTER_K;
+                                const string AZERBAIJANE_CODE = "994", ARMENIA_CODE = "374", BELARUS_CODE = "375",
+                                             GEORGIA_CODE = "995", KAZAKHSTAN_CODE = "007" + UPPERCASE_ENGLISH_LETTER_K, KYRGYZSTANN_CODE = "996",
+                                             LATVIA_CODE = "371", LITHUANIA_CODE = "370", MOLDOVA_CODE = "373",
+                                             RUSSIA_CODE = "007", TAJIKISTAN_CODE = "992", TURKMENISTAN_CODE = "993",
+                                             UZBEKISTAN_CODE = "998", UKRAINE_CODE = "380", ESTONIA_CODE = "372";
+
+                                switch (countryCode)
+                                {
+                                    case AZERBAIJANE_CODE:
+                                    case ARMENIA_CODE:
+                                    case GEORGIA_CODE:
+                                    case KAZAKHSTAN_CODE:
+                                    case KYRGYZSTANN_CODE:
+                                    case MOLDOVA_CODE:
+                                    case TAJIKISTAN_CODE:
+                                    case TURKMENISTAN_CODE:
+                                    case UZBEKISTAN_CODE:
+                                    case BELARUS_CODE:
+                                    case UKRAINE_CODE:
+                                    case RUSSIA_CODE:
+                                    case LITHUANIA_CODE:
+                                    case ESTONIA_CODE:
+                                        {
+                                            countryCodeIsCorrect = true;
+                                            break;
+                                        }
+                                    default:
+                                        {
+                                            countryCodeIsCorrect = false;
+                                            Console.ForegroundColor = ConsoleColor.Red;
+                                            Console.WriteLine($"Вы ввели несуществуещий код: {countryCode}!");
+                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                            break;
+                                        }
+                                }
                             }
                         }
-
-                        bool countryCodeIsCorrect;
-
-                        //ChekCountryCode (countryCode)
-                        { 
-                            
-                        }
-
+                        while (countryCodeIsCorrect == false);
+                        
                     }
-                    
+
                     Console.Write("Количество плитки     : ");
                     string stringQuontiti = Console.ReadLine();
                     tileQuontiti = Convert.ToDecimal(stringQuontiti);
@@ -156,9 +197,6 @@ namespace DiscountCalculator
                         default:
                             {
                                 rate = 0;
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine($"Вы ввели несуществуещий код: {countryCode}!");
-                                Console.ForegroundColor = ConsoleColor.Gray;
                                 break;
                             }
                     }
@@ -210,8 +248,7 @@ namespace DiscountCalculator
 
                 }
 
-                Console.WriteLine("******************************************************************\n"+
-                                        "Нажмите Enter, для начала обслуживания нового клиента");
+
             }
 
         }
