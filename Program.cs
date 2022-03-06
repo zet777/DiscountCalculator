@@ -10,6 +10,8 @@ namespace DiscountCalculator
             {
                 string countryCode;
                 decimal tileQuontiti, tilePrice;
+                
+                // countryCode, tileQuontiti, tilePrice = RunInputUserInterface ()
                 {
                     const string COUNTRY_CODES =
                         "******************************************************************\n" +
@@ -19,30 +21,43 @@ namespace DiscountCalculator
                         "Грузия        (995)  |  Молдова     (373)  |  Украина        (380)\n" +
                         "Казахстан     (007K)  |  Россия      (007)  |  Эстония        (372)\n" +
                         "------------------------------------------------------------------";
+                    
+                        Console.WriteLine(COUNTRY_CODES);
 
-                    Console.WriteLine(COUNTRY_CODES);
-
-                    Console.WriteLine("Телефонный код страны: ");
-                    countryCode = Console.ReadLine();
-
-                    // countryCode = DetectKazakhstanCode (countryCode)
+                    //countryCode = ProcessCountryCode (countryCode)
                     {
-                        const string KAZAKHSTAN_CODE = "007";
-                        const string LOWERCASE_ENGLISH_LETTER_k = "k", UPPERCASE_RUSSIAN_LETTER_K = "К",
-                            LOWERCASE_RUSSIAN_LETTER_k = "к";
 
-                        bool countryCodeIsKazakhstanCodeAndAnyLatterK =
-                            countryCode == (KAZAKHSTAN_CODE + LOWERCASE_ENGLISH_LETTER_k) ||
-                            countryCode == (KAZAKHSTAN_CODE + UPPERCASE_RUSSIAN_LETTER_K) ||
-                            countryCode == (KAZAKHSTAN_CODE + LOWERCASE_RUSSIAN_LETTER_k);
-                        if (countryCodeIsKazakhstanCodeAndAnyLatterK)
+                        Console.WriteLine("Телефонный код страны: ");
+                        countryCode = Console.ReadLine();
+
+                        // countryCode = DetectKazakhstanCode (countryCode)
                         {
-                            const string UPPERCASE_ENGLISH_LETTER_K = "K";
-                            countryCode = KAZAKHSTAN_CODE + UPPERCASE_ENGLISH_LETTER_K;
-                        }
-                    }
 
-                    Console.Write("Количество плитки: ");
+                            const string KAZAKHSTAN_CODE = "007";
+                            const string LOWERCASE_ENGLISH_LETTER_k = "k", UPPERCASE_RUSSIAN_LETTER_K = "К",
+                                LOWERCASE_RUSSIAN_LETTER_k = "к";
+
+                            bool countryCodeIsKazakhstanCodeAndAnyLatterK =
+                                countryCode == (KAZAKHSTAN_CODE + LOWERCASE_ENGLISH_LETTER_k) ||
+                                countryCode == (KAZAKHSTAN_CODE + UPPERCASE_RUSSIAN_LETTER_K) ||
+                                countryCode == (KAZAKHSTAN_CODE + LOWERCASE_RUSSIAN_LETTER_k);
+                            if (countryCodeIsKazakhstanCodeAndAnyLatterK)
+                            {
+                                const string UPPERCASE_ENGLISH_LETTER_K = "K";
+                                countryCode = KAZAKHSTAN_CODE + UPPERCASE_ENGLISH_LETTER_K;
+                            }
+                        }
+
+                        bool countryCodeIsCorrect;
+
+                        //ChekCountryCode (countryCode)
+                        { 
+                            
+                        }
+
+                    }
+                    
+                    Console.Write("Количество плитки     : ");
                     string stringQuontiti = Console.ReadLine();
                     tileQuontiti = Convert.ToDecimal(stringQuontiti);
 
@@ -52,6 +67,8 @@ namespace DiscountCalculator
                 }
 
                 decimal rate;
+
+                // rate = CalculatePriceRate (countryCode)
                 {
                     const string UPPERCASE_ENGLISH_LETTER_K = "K";
                     const string AZERBAIJANE_CODE = "994", ARMENIA_CODE = "374", BELARUS_CODE = "375",
@@ -184,7 +201,7 @@ namespace DiscountCalculator
 
                 decimal paymentAmoount = tileCost - discount;
 
-
+                //RunInputUserInterface (tilePriceWithRate, tileCost, discount, paymentAmount)
                 {
                     Console.WriteLine($"Цена с коэффициентом  : {tilePriceWhithRate} руб.");
                     Console.WriteLine($"Общая стоимость плитки: {tileCost} руб.");
