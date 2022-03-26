@@ -77,6 +77,7 @@ namespace DiscountCalculator
                                     case BELARUS_CODE:
                                     case UKRAINE_CODE:
                                     case RUSSIA_CODE:
+                                    case LATVIA_CODE:
                                     case LITHUANIA_CODE:
                                     case ESTONIA_CODE:
                                         {
@@ -97,7 +98,7 @@ namespace DiscountCalculator
                         while (countryCodeIsCorrect == false);
                         
                     }
-                    //bmbm
+                    
                     Console.Write("Количество плитки     : ");
                     string stringQuontiti = Console.ReadLine();
                     tileQuontiti = Convert.ToDecimal(stringQuontiti);
