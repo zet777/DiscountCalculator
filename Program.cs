@@ -97,7 +97,7 @@ namespace DiscountCalculator
                         while (countryCodeIsCorrect == false);
                         
                     }
-
+                    //bmbm
                     Console.Write("Количество плитки     : ");
                     string stringQuontiti = Console.ReadLine();
                     tileQuontiti = Convert.ToDecimal(stringQuontiti);
